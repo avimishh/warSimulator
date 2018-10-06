@@ -1,3 +1,4 @@
+package Entities;
 import java.io.Serializable;
 
 public abstract class Weapon implements Serializable {

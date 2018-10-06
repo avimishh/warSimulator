@@ -1,11 +1,14 @@
+package Entities;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Missile {
+public class Missile extends DestructibleWeapon {
 
-	private String id;
+	private static final long serialVersionUID = -6237565596243452816L;
 	private String destination;
 	private double launchTime;
 	private double flyTime;
 	private double damage;
+	private AtomicBoolean isDestructed = new AtomicBoolean(false);
 
 	
 	/**
@@ -17,26 +20,11 @@ public class Missile {
 	 * @param damage
 	 */
 	public Missile(String id, String destination, double launchTime, double flyTime, double damage) {
-		super();
-		this.id = id;
-		this.destination = destination;
-		this.launchTime = launchTime;
-		this.flyTime = flyTime;
-		this.damage = damage;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
+		super(id);
+		setDestination(destination);
+		setLaunchTime(launchTime);
+		setFlyTime(flyTime);
+		setDamage(damage);
 	}
 
 	/**
@@ -93,6 +81,27 @@ public class Missile {
 	 */
 	public void setDamage(double damage) {
 		this.damage = damage;
+	}
+
+	@Override
+	public void destruct() {
+		isDestructed.set(true);
+		
+	}
+
+	@Override
+	public boolean isDestructed() {
+		
+		return isDestructed();
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() +
+				" destination= " + destination +
+				", launchTime=" + launchTime +
+                ", flightTime=" + flyTime +
+                ", damage=" + damage;
 	}
 
 }
