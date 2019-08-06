@@ -6,7 +6,7 @@ public class Missile extends DestructibleWeapon {
 	private static final long serialVersionUID = -6237565596243452816L;
 	private String destination;
 	private double launchTime;
-	private double flyTime;
+	private long flyTime;
 	private double damage;
 	private AtomicBoolean isDestructed = new AtomicBoolean(false);
 
@@ -19,7 +19,7 @@ public class Missile extends DestructibleWeapon {
 	 * @param flyTime
 	 * @param damage
 	 */
-	public Missile(String id, String destination, double launchTime, double flyTime, double damage) {
+	public Missile(String id, String destination, double launchTime, long flyTime, double damage) {
 		super(id);
 		setDestination(destination);
 		setLaunchTime(launchTime);
@@ -58,14 +58,14 @@ public class Missile extends DestructibleWeapon {
 	/**
 	 * @return the flyTime
 	 */
-	public double getFlyTime() {
+	public long getFlyTime() {
 		return flyTime;
 	}
 
 	/**
 	 * @param flyTime the flyTime to set
 	 */
-	public void setFlyTime(double flyTime) {
+	public void setFlyTime(long flyTime) {
 		this.flyTime = flyTime;
 	}
 
